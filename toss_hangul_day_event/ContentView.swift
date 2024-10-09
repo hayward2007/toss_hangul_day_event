@@ -64,67 +64,6 @@ class OCRModel: NSObject, ObservableObject {
         }
     }
     
-//    private func recognizeText(in image: CGImage) {
-//        let request = VNRecognizeTextRequest { [weak self] request, error in
-//            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
-//            
-//            let recognizedStrings = observations.compactMap { observation -> (String, CGRect)? in
-//                guard let text = observation.topCandidates(1).first?.string.filter({ $0.isHangul }) else { return nil }
-//
-//                // Add bounding box code here
-//                let boundingRects: [CGRect] = observations.compactMap { observation in
-//                    guard let candidate = observation.topCandidates(1).first else { return .zero }
-//                    
-//                    let stringRange = candidate.string.startIndex..<candidate.string.endIndex
-//                    let boxObservation = try? candidate.boundingBox(for: stringRange)
-//                    let boundingBox = boxObservation?.boundingBox ?? .zero
-//                    
-//                    // Convert the rectangle from normalized coordinates to image coordinates.
-//                    return VNImageRectForNormalizedRect(boundingBox,
-//                                                        Int(image.width),
-//                                                        Int(image.height))
-//                }
-//                
-//                let boundingBox = boundingRects.first ?? .zero // Use the first bounding box for this example
-//                return (text, boundingBox)
-//            }
-//            
-//            DispatchQueue.main.async {
-//                var result: [(text: String, boundingBox: CGRect)] = []
-//                var wordFrequency: [String: Int] = [:]
-//                
-//                for recognizedString in recognizedStrings {
-//                    if(recognizedString.0.count == 2) {
-//                        result.append(recognizedString)
-//                    }
-//                }
-//                
-//                for givenWord in result {
-//                    if(wordFrequency[givenWord.text] != nil) {
-//                        wordFrequency[givenWord.text]! += 1
-//                    } else {
-//                        wordFrequency.updateValue(0, forKey: givenWord.text)
-//                    }
-//                }
-//                
-//                for index in wordFrequency {
-//                    if(index.value > 2) {
-//                        self?.mainTexts.append(index.key)
-//                    }
-//                }
-//                
-//                self!.recognizedTexts = result
-//            }
-//        }
-//        
-//        request.recognitionLevel = .accurate
-//        request.recognitionLanguages = ["ko"] // 한글 언어 설정
-//        
-//        let requestHandler = VNImageRequestHandler(cgImage: image, options: [:])
-//        try? requestHandler.perform([request])
-//    }
-
-    
     private func recognizeText(in image: CGImage) {
         let request = VNRecognizeTextRequest { [weak self] request, error in
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
@@ -224,17 +163,14 @@ struct TextOverlay: View {
             ForEach(Array(texts.enumerated()), id: \.offset) { index, item in
                 let (text, boundingBox) = item
                 if(mainTexts.contains(text)) {
-//                    Rectangle()
-//                        .path(in: boundingBox)
-//                        .border(Color.green, width: 4)
                     Text(text)
-                        .font(.largeTitle)
+                        .font(.title)
                         .foregroundColor(.green)
                         .position(self.position(for: boundingBox, in: geometry.size))
                         .background(Color.clear)
                 } else {
                     Text(text)
-                        .font(.largeTitle)
+                        .font(.title)
                         .foregroundColor(.red)
                         .position(self.position(for: boundingBox, in: geometry.size))
                         .background(Color.clear)
