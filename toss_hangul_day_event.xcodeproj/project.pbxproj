@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D1C0E352CB61DA700579E7F /* toss-hangul-day-event-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "toss-hangul-day-event-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4D84AD9E2CB614F400D1E13E /* toss_hangul_day_event.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toss_hangul_day_event.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D84ADA12CB614F400D1E13E /* toss_hangul_day_eventApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toss_hangul_day_eventApp.swift; sourceTree = "<group>"; };
 		4D84ADA32CB614F400D1E13E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		4D84ADA02CB614F400D1E13E /* toss_hangul_day_event */ = {
 			isa = PBXGroup;
 			children = (
+				4D1C0E352CB61DA700579E7F /* toss-hangul-day-event-Info.plist */,
 				4D84ADA12CB614F400D1E13E /* toss_hangul_day_eventApp.swift */,
 				4D84ADA32CB614F400D1E13E /* ContentView.swift */,
 				4D84ADA52CB614F500D1E13E /* Assets.xcassets */,
@@ -425,6 +427,8 @@
 				DEVELOPMENT_TEAM = JYNKL4T4V4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "toss-hangul-day-event-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "돈 좀 벌어볼까?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +458,8 @@
 				DEVELOPMENT_TEAM = JYNKL4T4V4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "toss-hangul-day-event-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "돈 좀 벌어볼까?";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
