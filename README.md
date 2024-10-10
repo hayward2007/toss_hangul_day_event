@@ -15,7 +15,3 @@
 
 ![example](docs/1.jpeg)
 ![example](docs/2.jpeg)
-<video width="320" height="240" controls>
-  <source src="docs/3.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
